@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diego Garcia | Backend Developer</title>
+<meta name="description" content="Landing page profissional de Diego Garcia, desenvolvedor backend focado em Laravel, APIs REST e arquitetura de software.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#0b1220;
+--surface:#111a2d;
+--surface-strong:#17243d;
+--text:#e9efff;
+--text-soft:#98a6c7;
+--line:#263556;
+--accent:#34d399;
+--accent-2:#38bdf8;
+--shadow:0 20px 60px rgba(4,10,22,.4);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Sora,sans-serif;
+background:radial-gradient(1200px 600px at 80% -20%,rgba(56,189,248,.18),transparent 60%),
+radial-gradient(900px 500px at 5% 10%,rgba(52,211,153,.14),transparent 60%),
+var(--bg);
+color:var(--text);
+line-height:1.65;
+}
+
+a{
+color:inherit;
+}
+
+.container{
+width:min(1120px,92%);
+margin:0 auto;
+}
+
+.hero{
+position:relative;
+padding:40px 0 60px;
+overflow:hidden;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 0;
+margin-bottom:60px;
+}
+
+.brand{
+font-family:"JetBrains Mono",monospace;
+color:var(--text-soft);
+font-size:14px;
+}
+
+.status{
+font-size:12px;
+color:#072516;
+background:rgba(52,211,153,.95);
+padding:6px 12px;
+border-radius:999px;
+font-weight:700;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1.3fr .9fr;
+gap:34px;
+align-items:stretch;
+}
+
+.eyebrow{
+display:inline-block;
+font-family:"JetBrains Mono",monospace;
+font-size:13px;
+color:var(--accent-2);
+margin-bottom:16px;
+letter-spacing:.4px;
+}
+
+.hero h1{
+font-size:clamp(2rem,4.2vw,4.1rem);
+line-height:1.07;
+margin-bottom:14px;
+max-width:14ch;
+}
+
+.hero p{
+color:var(--text-soft);
+font-size:clamp(1rem,1.6vw,1.18rem);
+max-width:56ch;
+margin-bottom:28px;
+}
+
+.btns{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.cta{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:13px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:700;
+font-size:14px;
+border:1px solid transparent;
+transition:transform .24s ease,box-shadow .24s ease,background .24s ease;
+}
+
+.cta.primary{
+background:linear-gradient(90deg,var(--accent),#2dd4bf);
+color:#03261a;
+box-shadow:0 10px 30px rgba(52,211,153,.25);
+}
+
+.cta.secondary{
+background:rgba(255,255,255,.02);
+border-color:var(--line);
+color:var(--text);
+}
+
+.cta:hover{
+transform:translateY(-2px);
+}
+
+.hero-panel{
+background:linear-gradient(160deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+border:1px solid var(--line);
+border-radius:18px;
+padding:24px;
+box-shadow:var(--shadow);
+display:grid;
+gap:16px;
+align-content:start;
+animation:rise .7s ease both;
+}
+
+.kpi{
+padding:14px;
+border-radius:12px;
+background:var(--surface);
+border:1px solid #1f2d4a;
+}
+
+.kpi strong{
+display:block;
+font-size:24px;
+margin-bottom:4px;
+}
+
+.kpi span{
+color:var(--text-soft);
+font-size:13px;
+}
+
+.section{
+padding:54px 0;
+}
+
+.section h2{
+font-size:clamp(1.5rem,3vw,2.2rem);
+margin-bottom:12px;
+}
+
+.lead{
+color:var(--text-soft);
+max-width:74ch;
+}
+
+.cards{
+margin-top:22px;
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:18px;
+}
+
+.card{
+background:linear-gradient(140deg,var(--surface),var(--surface-strong));
+border:1px solid var(--line);
+padding:22px;
+border-radius:14px;
+box-shadow:var(--shadow);
+transform:translateY(12px);
+opacity:0;
+animation:fadeUp .7s ease forwards;
+}
+
+.card:nth-child(2){animation-delay:.08s;}
+.card:nth-child(3){animation-delay:.16s;}
+.card:nth-child(4){animation-delay:.24s;}
+
+.card h3{
+font-size:1.1rem;
+margin-bottom:8px;
+}
+
+.card p{
+color:var(--text-soft);
+font-size:.95rem;
+}
+
+.project-grid{
+margin-top:22px;
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:18px;
+}
+
+.project{
+background:#0d1729;
+border:1px solid var(--line);
+border-radius:14px;
+padding:22px;
+display:grid;
+gap:14px;
+box-shadow:var(--shadow);
+}
+
+.project h3{
+font-size:1.1rem;
+}
+
+.project p{
+color:var(--text-soft);
+}
+
+.tech{
+font-family:"JetBrains Mono",monospace;
+font-size:13px;
+color:#9ec8f7;
+}
+
+.stack-list{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:18px;
+}
+
+.badge{
+padding:8px 14px;
+border-radius:999px;
+font-size:13px;
+font-family:"JetBrains Mono",monospace;
+background:rgba(56,189,248,.12);
+border:1px solid #2c4b70;
+color:#b5d9fb;
+}
+
+.contact{
+text-align:center;
+padding:74px 0 54px;
+}
+
+.contact p{
+color:var(--text-soft);
+margin:8px auto 24px;
+max-width:56ch;
+}
+
+footer{
+padding:26px 0 34px;
+text-align:center;
+font-family:"JetBrains Mono",monospace;
+font-size:12px;
+color:#6f80a6;
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes rise{
+from{
+opacity:0;
+transform:translateY(18px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media (max-width:900px){
+.hero-grid,
+.cards,
+.project-grid{
+grid-template-columns:1fr;
+}
+
+.hero{
+padding-top:24px;
+}
+
+.topbar{
+margin-bottom:34px;
+}
+}
+
+@media (max-width:560px){
+.cta{
+width:100%;
+}
+
+.btns{
+width:100%;
+}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<div class="container">
+<div class="topbar">
+<div class="brand">diego.garcia/backend</div>
+<div class="status">Disponivel para oportunidades Jr</div>
+</div>
+
+<div class="hero-grid">
+<div>
+<span class="eyebrow">BACKEND DEVELOPER</span>
+<h1>Construindo APIs confiaveis para produtos que nao podem parar.</h1>
+<p>
+Sou Diego Garcia, desenvolvedor backend especializado em Laravel, APIs REST e arquitetura de aplicacoes web.
+Atuo na integracao entre sistemas, organizacao de servicos e desenvolvimento de bases escalaveis.
+</p>
+
+<div class="btns">
+<a class="cta primary" href="https://github.com/DiegoGS1002" target="_blank" rel="noopener noreferrer">Ver projetos no GitHub</a>
+<a class="cta secondary" href="https://www.linkedin.com/in/diego-garcia-bb75b7288" target="_blank" rel="noopener noreferrer">Conectar no LinkedIn</a>
+</div>
+</div>
+
+<aside class="hero-panel" aria-label="Resumo profissional">
+<div class="kpi">
+<strong>Laravel + PHP</strong>
+<span>Stack principal para APIs e sistemas web estruturados.</span>
+</div>
+<div class="kpi">
+<strong>Integracao entre servicos</strong>
+<span>Conexao com gateways, autenticacao e automacao de fluxos.</span>
+</div>
+<div class="kpi">
+<strong>Foco atual</strong>
+<span>Arquitetura de software, testes com PHPUnit e Clean Architecture.</span>
+</div>
+</aside>
+</div>
+</div>
+</header>
+
+<main class="container">
+<section class="section" id="sobre">
+<h2>Sobre mim</h2>
+<p class="lead">
+Sou desenvolvedor Back-end focado em PHP e Laravel, com experiencia no desenvolvimento de APIs REST,
+integracao entre sistemas e construcao de aplicacoes web organizadas.
+Atualmente curso Analise e Desenvolvimento de Sistemas e evoluo continuamente em boas praticas,
+arquitetura e escalabilidade.
+</p>
+</section>
+
+<section class="section" id="competencias">
+<h2>Principais competencias</h2>
+<div class="cards">
+<article class="card">
+<h3>APIs REST</h3>
+<p>Desenvolvimento de APIs com autenticacao, controle de acesso e organizacao clara de endpoints.</p>
+</article>
+<article class="card">
+<h3>Laravel e PHP</h3>
+<p>Criacao de backends robustos com arquitetura limpa e boas praticas do ecossistema Laravel.</p>
+</article>
+<article class="card">
+<h3>Integracao de sistemas</h3>
+<p>Conexao com servicos externos, gateways e automacao de processos entre aplicacoes.</p>
+</article>
+<article class="card">
+<h3>Banco de dados</h3>
+<p>Modelagem e manipulacao de dados com MySQL e PostgreSQL, mantendo consistencia e desempenho.</p>
+</article>
+</div>
+</section>
+
+<section class="section" id="projetos">
+<h2>Projetos em destaque</h2>
+<div class="project-grid">
+<article class="project">
+<h3>Nexora EMS ERP</h3>
+<p>Sistema ERP web em Laravel voltado para gestao empresarial, com arquitetura modular e foco em manutencao.</p>
+<div class="tech">Laravel | MySQL | REST API | Docker</div>
+<a class="cta secondary" href="https://github.com/DiegoGS1002/nexora-ems-erp" target="_blank" rel="noopener noreferrer">Ver repositorio</a>
+</article>
+
+<article class="project">
+<h3>BeTalentech Payment API</h3>
+<p>API Gateway de pagamentos para centralizar autenticacao, integracao com provedores e gerenciamento de transacoes.</p>
+<div class="tech">PHP 8 | Laravel | Docker | MySQL | JWT</div>
+<a class="cta secondary" href="https://github.com/DiegoGS1002/betalentech-payment-api" target="_blank" rel="noopener noreferrer">Ver repositorio</a>
+</article>
+</div>
+</section>
+
+<section class="section" id="stack">
+<h2>Stack tecnologica</h2>
+<div class="stack-list" aria-label="Tecnologias dominadas">
+<span class="badge">Laravel</span>
+<span class="badge">PHP</span>
+<span class="badge">MySQL</span>
+<span class="badge">PostgreSQL</span>
+<span class="badge">Docker</span>
+<span class="badge">Git</span>
+<span class="badge">Linux</span>
+<span class="badge">REST APIs</span>
+</div>
+</section>
+
+<section class="section" id="estudos">
+<h2>Atualmente estudando</h2>
+<p class="lead">Arquitetura de Software, testes automatizados com PHPUnit, Docker aplicado a aplicacoes Laravel e principios de Clean Architecture.</p>
+</section>
+</main>
+
+<section class="contact">
+<div class="container">
+<h2>Vamos conversar?</h2>
+<p>Estou aberto a oportunidades como Desenvolvedor Back-end Jr e projetos que exigem comprometimento tecnico e evolucao continua.</p>
+<div class="btns" style="justify-content:center;">
+<a class="cta primary" href="mailto:diegoaugusto.garciaa@gmail.com">Entrar em contato</a>
+<a class="cta secondary" href="https://wa.me/5532984502345" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+</div>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Diego Garcia</p>
+</footer>
+
+</body>
+</html>
