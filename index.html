@@ -1,482 +1,580 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diego Garcia | Backend Developer</title>
-<meta name="description" content="Landing page profissional de Diego Garcia, desenvolvedor backend com foco em sistemas web, ERPs e APIs REST com Laravel.">
+<meta name="description" content="Landing page de Diego Garcia com foco em projetos reais de ERP, APIs de pagamento e SaaS de assinaturas com Laravel.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
 <style>
-:root{
---bg:#0b1220;
---surface:#111a2d;
---surface-strong:#17243d;
---text:#e9efff;
---text-soft:#98a6c7;
---line:#263556;
---accent:#34d399;
---accent-2:#38bdf8;
---shadow:0 20px 60px rgba(4,10,22,.4);
+:root {
+  --bg: #0b1220;
+  --surface: #111a2d;
+  --surface-strong: #17243d;
+  --text: #e9efff;
+  --text-soft: #98a6c7;
+  --line: #263556;
+  --accent: #34d399;
+  --accent-2: #38bdf8;
+  --shadow: 0 18px 50px rgba(4, 10, 22, 0.36);
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-font-family:Sora,sans-serif;
-background:radial-gradient(1200px 600px at 80% -20%,rgba(56,189,248,.18),transparent 60%),
-radial-gradient(900px 500px at 5% 10%,rgba(52,211,153,.14),transparent 60%),
-var(--bg);
-color:var(--text);
-line-height:1.65;
+body {
+  font-family: Sora, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 80% -20%, rgba(56, 189, 248, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 5% 10%, rgba(52, 211, 153, 0.14), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.65;
 }
 
-a{
-color:inherit;
+a { color: inherit; }
+
+.container {
+  width: min(1140px, 92%);
+  margin: 0 auto;
 }
 
-.container{
-width:min(1120px,92%);
-margin:0 auto;
+.hero {
+  position: relative;
+  padding: 36px 0 52px;
+  overflow: hidden;
 }
 
-.hero{
-position:relative;
-padding:40px 0 60px;
-overflow:hidden;
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 44px;
 }
 
-.topbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:10px 0;
-margin-bottom:60px;
+.brand {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--text-soft);
+  font-size: 13px;
 }
 
-.brand{
-font-family:"JetBrains Mono",monospace;
-color:var(--text-soft);
-font-size:14px;
+.status {
+  font-size: 12px;
+  color: #072516;
+  background: rgba(52, 211, 153, 0.96);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
 }
 
-.status{
-font-size:12px;
-color:#072516;
-background:rgba(52,211,153,.95);
-padding:6px 12px;
-border-radius:999px;
-font-weight:700;
+.nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.hero-grid{
-display:grid;
-grid-template-columns:1.3fr .9fr;
-gap:34px;
-align-items:stretch;
+.nav a {
+  text-decoration: none;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: #9ec8f7;
 }
 
-.eyebrow{
-display:inline-block;
-font-family:"JetBrains Mono",monospace;
-font-size:13px;
-color:var(--accent-2);
-margin-bottom:16px;
-letter-spacing:.4px;
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 28px;
+  align-items: stretch;
 }
 
-.hero h1{
-font-size:clamp(2rem,4.2vw,4.1rem);
-line-height:1.07;
-margin-bottom:14px;
-max-width:14ch;
+.eyebrow {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: var(--accent-2);
+  margin-bottom: 14px;
+  letter-spacing: 0.4px;
 }
 
-.hero p{
-color:var(--text-soft);
-font-size:clamp(1rem,1.6vw,1.18rem);
-max-width:56ch;
-margin-bottom:28px;
+.hero h1 {
+  font-size: clamp(2rem, 4.2vw, 4rem);
+  line-height: 1.08;
+  margin-bottom: 14px;
+  max-width: 16ch;
 }
 
-.btns{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
+.hero p {
+  color: var(--text-soft);
+  font-size: clamp(1rem, 1.55vw, 1.14rem);
+  max-width: 60ch;
+  margin-bottom: 24px;
 }
 
-.cta{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:13px 20px;
-border-radius:10px;
-text-decoration:none;
-font-weight:700;
-font-size:14px;
-border:1px solid transparent;
-transition:transform .24s ease,box-shadow .24s ease,background .24s ease;
+.btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.cta.primary{
-background:linear-gradient(90deg,var(--accent),#2dd4bf);
-color:#03261a;
-box-shadow:0 10px 30px rgba(52,211,153,.25);
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid transparent;
+  transition: transform 0.22s ease, background 0.22s ease;
 }
 
-.cta.secondary{
-background:rgba(255,255,255,.02);
-border-color:var(--line);
-color:var(--text);
+.cta.primary {
+  background: linear-gradient(90deg, var(--accent), #2dd4bf);
+  color: #03261a;
 }
 
-.cta:hover{
-transform:translateY(-2px);
+.cta.secondary {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--line);
+  color: var(--text);
 }
 
-.hero-panel{
-background:linear-gradient(160deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
-border:1px solid var(--line);
-border-radius:18px;
-padding:24px;
-box-shadow:var(--shadow);
-display:grid;
-gap:16px;
-align-content:start;
-animation:rise .7s ease both;
+.cta:hover {
+  transform: translateY(-2px);
 }
 
-.kpi{
-padding:14px;
-border-radius:12px;
-background:var(--surface);
-border:1px solid #1f2d4a;
+/* ── Scroll animations ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
-.kpi strong{
-display:block;
-font-size:24px;
-margin-bottom:4px;
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.kpi span{
-color:var(--text-soft);
-font-size:13px;
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+
+.hero-panel {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 12px;
 }
 
-.section{
-padding:54px 0;
+.kpi {
+  padding: 13px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid #1f2d4a;
 }
 
-.section h2{
-font-size:clamp(1.5rem,3vw,2.2rem);
-margin-bottom:12px;
+.kpi strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 4px;
 }
 
-.lead{
-color:var(--text-soft);
-max-width:74ch;
+.kpi span {
+  color: var(--text-soft);
+  font-size: 13px;
 }
 
-.cards{
-margin-top:22px;
-display:grid;
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:18px;
+.section {
+  padding: 50px 0;
 }
 
-.card{
-background:linear-gradient(140deg,var(--surface),var(--surface-strong));
-border:1px solid var(--line);
-padding:22px;
-border-radius:14px;
-box-shadow:var(--shadow);
-transform:translateY(12px);
-opacity:0;
-animation:fadeUp .7s ease forwards;
+.section h2 {
+  font-size: clamp(1.5rem, 2.8vw, 2.16rem);
+  margin-bottom: 10px;
 }
 
-.card:nth-child(2){animation-delay:.08s;}
-.card:nth-child(3){animation-delay:.16s;}
-.card:nth-child(4){animation-delay:.24s;}
-
-.card h3{
-font-size:1.1rem;
-margin-bottom:8px;
+.lead {
+  color: var(--text-soft);
+  max-width: 80ch;
 }
 
-.card p{
-color:var(--text-soft);
-font-size:.95rem;
-}
-
-.project-grid{
-margin-top:22px;
-display:grid;
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:18px;
-}
-
-.project{
-background:#0d1729;
-border:1px solid var(--line);
-border-radius:14px;
-padding:22px;
-display:grid;
-gap:14px;
-box-shadow:var(--shadow);
-}
-
-.project h3{
-font-size:1.1rem;
-}
-
-.project p{
-color:var(--text-soft);
-}
-
-.tech{
-font-family:"JetBrains Mono",monospace;
-font-size:13px;
-color:#9ec8f7;
-}
-
-.stack-list{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:18px;
-}
-
-.badge{
-padding:8px 14px;
-border-radius:999px;
-font-size:13px;
-font-family:"JetBrains Mono",monospace;
-background:rgba(56,189,248,.12);
-border:1px solid #2c4b70;
-color:#b5d9fb;
-}
-
-.contact{
-text-align:center;
-padding:74px 0 54px;
-}
-
-.contact p{
-color:var(--text-soft);
-margin:8px auto 24px;
-max-width:56ch;
-}
-
-footer{
-padding:26px 0 34px;
-text-align:center;
-font-family:"JetBrains Mono",monospace;
-font-size:12px;
-color:#6f80a6;
-}
-
-@keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@keyframes rise{
-from{
-opacity:0;
-transform:translateY(18px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@media (max-width:900px){
-.hero-grid,
 .cards,
-.project-grid{
-grid-template-columns:1fr;
+.project-grid,
+.list-grid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
-.hero{
-padding-top:24px;
+.card,
+.project,
+.list-box {
+  background: linear-gradient(140deg, var(--surface), var(--surface-strong));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.22s ease, transform 0.22s ease;
 }
 
-.topbar{
-margin-bottom:34px;
-}
-}
-
-@media (max-width:560px){
-.cta{
-width:100%;
+.card:hover,
+.project:hover {
+  border-color: rgba(52, 211, 153, 0.3);
+  transform: translateY(-3px);
 }
 
-.btns{
-width:100%;
+.card h3,
+.project h3,
+.list-box h3 {
+  font-size: 1.08rem;
+  margin-bottom: 8px;
 }
+
+.card p,
+.project p,
+.list-box p,
+.project ul {
+  color: var(--text-soft);
+  font-size: 0.94rem;
+}
+
+.project {
+  display: grid;
+  gap: 10px;
+}
+
+.project ul {
+  margin-left: 18px;
+}
+
+.tech {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: #9ec8f7;
+}
+
+.project-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.badge {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-family: "JetBrains Mono", monospace;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid #2c4b70;
+  color: #b5d9fb;
+}
+
+.contact {
+  text-align: center;
+  padding: 66px 0 50px;
+}
+
+.contact p {
+  color: var(--text-soft);
+  margin: 8px auto 22px;
+  max-width: 58ch;
+}
+
+footer {
+  padding: 22px 0 34px;
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: #6f80a6;
+}
+
+@media (max-width: 940px) {
+  .hero-grid,
+  .cards,
+  .project-grid,
+  .list-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .cta { width: 100%; }
+  .btns { width: 100%; }
 }
 </style>
 </head>
 <body>
 
 <header class="hero">
-<div class="container">
+  <div class="container">
     <div class="topbar">
-        <div class="brand">diego.garcia/backend</div>
-        <div class="status">Disponivel para oportunidades Jr</div>
-        </div>
-
-        <div class="hero-grid">
-        <div>
-            <span class="eyebrow">BACKEND DEVELOPER</span>
-            <h1>Desenvolvendo sistemas web e ERPs que suportam operações reais de negócio.</h1>
-            <p>
-            Sou Diego Garcia, desenvolvedor backend com foco em Laravel e desenvolvimento de sistemas web.
-            Tenho experiência na construção de ERPs, APIs REST e integração entre serviços, criando aplicações organizadas,
-            escaláveis e preparadas para cenários reais de uso.
-            </p>
-
-            <div class="btns">
-                <a class="cta primary" href="https://github.com/DiegoGS1002" target="_blank" rel="noopener noreferrer">Ver projetos no GitHub</a>
-                <a class="cta secondary" href="https://www.linkedin.com/in/diego-garcia-bb75b7288" target="_blank" rel="noopener noreferrer">Conectar no LinkedIn</a>
-            </div>
-        </div>
-
-        <aside class="hero-panel" aria-label="Resumo profissional">
-            <div class="kpi">
-                <strong>ERPs e sistemas web</strong>
-                <span>Desenvolvimento de sistemas completos para gestão empresarial com foco em organização e manutenção.</span>
-            </div>
-            <div class="kpi">
-                <strong>APIs e integrações</strong>
-                <span>Construção de APIs e integração com gateways de pagamento e serviços externos.</span>
-            </div>
-            <div class="kpi">
-                <strong>Metodo MALT</strong>
-                <span>Modelagem, Ação, Lógica e Testes</span>
-            </div>
-            <div class="kpi">
-                <strong>Foco atual</strong>
-                <span>Arquitetura de software, padronização de código e evolução para sistemas escaláveis.</span>
-            </div>
-        </aside>
+      <div class="brand">diego.garcia/backend</div>
+      <nav class="nav" aria-label="Navegacao principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#competencias">Competencias</a>
+        <a href="#stack">Stack</a>
+      </nav>
+      <div class="status">Disponivel para oportunidades Jr</div>
     </div>
-</div>
+
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">BACKEND DEVELOPER</span>
+        <h1>Backend orientado a produto, com foco em ERP, pagamentos e SaaS.</h1>
+        <p>
+          Sou Diego Garcia e desenvolvo sistemas web que resolvem operações reais de negócio.
+          Meu foco está em Laravel, arquitetura modular, APIs REST e integrações críticas.
+          Nos projetos mais recentes, trabalhei com ERP multi-módulo, fallback de gateways de pagamento,
+          multi-tenancy, trilhas de auditoria e automações de fluxo.
+        </p>
+        <div class="btns">
+          <a class="cta primary" href="https://github.com/DiegoGS1002" target="_blank" rel="noopener noreferrer">Ver GitHub</a>
+          <a class="cta secondary" href="https://www.linkedin.com/in/diego-garcia-bb75b7288" target="_blank" rel="noopener noreferrer">Conectar no LinkedIn</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Resumo profissional">
+        <div class="kpi">
+          <strong>4 projetos documentados</strong>
+          <span>Nexora, Agostini ERP, BeTalentech Payment API e Subly.</span>
+        </div>
+        <div class="kpi">
+          <strong>Arquitetura orientada a domínio</strong>
+          <span>Service layer, componentes reativos, modularizacao e padroes consistentes.</span>
+        </div>
+        <div class="kpi">
+          <strong>Integrações sensíveis</strong>
+          <span>Gateways de pagamento, Stripe, Google Maps, webhooks e fluxos de fallback.</span>
+        </div>
+        <div class="kpi">
+          <strong>Qualidade e governança</strong>
+          <span>RBAC, auditoria, testes com Pest/PHPUnit e preocupação com manutenção.</span>
+        </div>
+      </aside>
+    </div>
+  </div>
 </header>
 
 <main class="container">
-<section class="section" id="sobre">
-    <h2>Sobre mim</h2>
-    <p class="lead">
-    Desenvolvedor Back-end com foco em PHP e Laravel, com experiência no desenvolvimento de sistemas web completos,
-    principalmente ERPs voltados para gestão empresarial.
-    Atuo na construção de APIs REST, integração entre sistemas e organização de código para manter aplicações escaláveis e de fácil manutenção.
-    Tenho vivência prática em projetos que envolvem regras de negócio reais, como controle financeiro, vendas, produção e logística.
+  <section class="section" id="sobre">
+    <h2 class="reveal">Proposta de valor</h2>
+    <p class="lead reveal reveal-delay-1">
+      Construo e evoluo produtos backend que precisam funcionar sob pressão: ERP com regras de negócio amplas,
+      APIs de pagamento com resiliência e SaaS com cobrança recorrente. Priorizo clareza de código, organização da
+      arquitetura e previsibilidade de entrega para facilitar manutenção e evolução contínua.
     </p>
-</section>
+  </section>
 
-<section class="section" id="competencias">
-    <h2>Principais competências</h2>
-    <div class="cards">
-        <article class="card">
-            <h3>Sistemas ERP</h3>
-            <p>Desenvolvimento de sistemas completos para gestão empresarial, incluindo módulos de vendas, financeiro, produção e logística.</p>
-        </article>
-        <article class="card">
-            <h3>Desenvolvimento Web</h3>
-            <p>Criação de aplicações web estruturadas com foco em organização, escalabilidade e separação de responsabilidades.</p>
-        </article>
-        <article class="card">
-            <h3>APIs REST e integrações</h3>
-            <p>Construção de APIs com autenticação, controle de acesso e integração com gateways e serviços externos.</p>
-        </article>
-        <article class="card">
-            <h3>Banco de dados</h3>
-            <p>Modelagem de dados voltada para regras de negócio complexas, garantindo consistência e desempenho.</p>
-        </article>
-    </div>
-</section>
+  <section class="section" id="projetos">
+    <h2 class="reveal">Projetos em destaque</h2>
+    <p class="lead reveal reveal-delay-1">Conteúdo estruturado a partir das documentações técnicas dos projetos.</p>
 
-<section class="section" id="projetos">
-    <h2>Projetos em destaque</h2>
     <div class="project-grid">
-    <article class="project">
+      <article class="project reveal reveal-delay-1">
         <h3>Nexora EMS ERP</h3>
-        <p>Sistema ERP desenvolvido em Laravel com arquitetura modular, voltado para gestão empresarial e organização de processos internos.</p>
-        <div class="tech">Laravel | MySQL | REST API | Docker</div>
-        <a class="cta secondary" href="https://github.com/DiegoGS1002/nexora-ems-erp" target="_blank" rel="noopener noreferrer">Ver repositório</a>
-    </article>
+        <p>
+          ERP modular em Laravel 12 com ampla cobertura de domínios: cadastros, financeiro, vendas, compras,
+          fiscal, logística, RH e produção, com componentes Livewire full-page e painel Filament.
+        </p>
+        <ul>
+          <li>Módulos operacionais com fluxos reais (pedido, faturamento, entrega e folha).</li>
+          <li>KPI dashboard, logs de auditoria, notificações e configurações centralizadas.</li>
+          <li>Service layer para vendas, precificação, ponto e processos financeiros.</li>
+        </ul>
+        <div class="tech">Laravel 12 | Livewire 3 | Filament 4.5 | MySQL | Tailwind | Bootstrap</div>
+        <div class="project-links">
+          <a class="cta secondary" href="https://github.com/DiegoGS1002/nexora-ems-erp" target="_blank" rel="noopener noreferrer">Repositório</a>
+        </div>
+      </article>
 
-    <article class="project">
-        <h3>BeTalentech Payment API</h3>
-        <p>API de pagamentos desenvolvida para integração com múltiplos gateways, gerenciamento de transações e autenticação centralizada.</p>
-        <div class="tech">PHP 8 | Laravel | Docker | MySQL | JWT</div>
-        <a class="cta secondary" href="https://github.com/DiegoGS1002/betalentech-payment-api" target="_blank" rel="noopener noreferrer">Ver repositório</a>
-    </article>
-    </div>
-</section>
-
-        <article class="project">
+      <article class="project reveal reveal-delay-2">
         <h3>Agostini ERP</h3>
-        <p>Sistema ERP completo com módulos de produção, vendas, financeiro, recursos humanos e logística, focado na centralização e controle de operações empresariais.</p>
-        <div class="tech">Laravel | MySQL | REST API | Docker</div>
-        <a class="cta secondary" href="https://github.com/DiegoGS1002/agostini_erp" target="_blank" rel="noopener noreferrer">Ver repositório</a>
-        </article>
-    </div>
-</section>
+        <p>
+          ERP multi-tenant para produção, vendas, financeiro, ponto eletrônico e logística, com controle de acesso
+          por papéis e trilhas de operação para usuários de backoffice e campo.
+        </p>
+        <ul>
+          <li>Isolamento por empresa com tenant scope e modelos com UUID.</li>
+          <li>Fluxos de produção e entrega com QR Code, pausas e progresso em tempo real.</li>
+          <li>Recursos de mapa, exportação Excel, PDF e permissão granular via FilamentShield.</li>
+        </ul>
+        <div class="tech">Laravel 12 | Filament 3 | Livewire 3 | MySQL | Docker | PWA</div>
+        <div class="project-links">
+          <a class="cta secondary" href="https://github.com/DiegoGS1002/agostini_erp" target="_blank" rel="noopener noreferrer">Repositório</a>
+        </div>
+      </article>
 
-<section class="section" id="stack">
-    <h2>Stack tecnológica</h2>
-    <div class="stack-list" aria-label="Tecnologias dominadas">
-        <span class="badge">Laravel</span>
-        <span class="badge">PHP</span>
-        <span class="badge">JavaScript</span>
-        <span class="badge">Node.js</span>
-        <span class="badge">Tailwind CSS</span>
-        <span class="badge">MySQL</span>
-        <span class="badge">PostgreSQL</span>
-        <span class="badge">Docker</span>
-        <span class="badge">Git</span>
-        <span class="badge">APIs REST</span>
-        <span class="badge">Postman</span>
-    </div>
-</section>
+      <article class="project reveal reveal-delay-3">
+        <h3>BeTalentech Payment API</h3>
+        <p>
+          API REST de pagamentos com múltiplos gateways, fallback automático, autenticação por token e
+          separação clara entre controller, services e contratos de gateway.
+        </p>
+        <ul>
+          <li>Fallback entre gateways por prioridade dinâmica e estado ativo.</li>
+          <li>Gestão de usuários, produtos, clientes e transações com regras por role.</li>
+          <li>Seeds padrão, ambiente Docker e cobertura de testes com Pest.</li>
+        </ul>
+        <div class="tech">Laravel 12 | Sanctum | Pest | MySQL | Docker | REST API</div>
+        <div class="project-links">
+          <a class="cta secondary" href="https://github.com/DiegoGS1002/betalentech-payment-api" target="_blank" rel="noopener noreferrer">Repositório</a>
+        </div>
+      </article>
 
-<section class="section" id="estudos">
-    <h2>Atualmente estudando</h2>
-    <p class="lead">Arquitetura de Software, testes automatizados com PHPUnit, organização de sistemas ERP e boas práticas para aplicações web escaláveis.</p>
-</section>
+      <article class="project reveal reveal-delay-4">
+        <h3>Subly</h3>
+        <p>
+          SaaS para gerenciamento de assinaturas recorrentes com Stripe, autenticação com 2FA,
+          suporte a webhooks e stack moderna para operação de billing.
+        </p>
+        <ul>
+          <li>Arquitetura com Laravel Cashier, Fortify e Livewire 4.</li>
+          <li>Fluxo de assinaturas, faturas e eventos de pagamento em tempo real.</li>
+          <li>Preparado para deploy com Docker e rotinas de testes automatizados.</li>
+        </ul>
+        <div class="tech">Laravel 13 | Livewire 4 | Cashier | Stripe | MySQL | Docker</div>
+        <div class="project-links">
+          <a class="cta secondary" href="https://github.com/DiegoGS1002/subly" target="_blank" rel="noopener noreferrer">Repositório</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="competencias">
+    <h2 class="reveal">Competências principais</h2>
+    <div class="cards">
+      <article class="card reveal reveal-delay-1">
+        <h3>Arquitetura backend</h3>
+        <p>Modelagem orientada a domínio, service layer, componentes desacoplados e organização para evolução incremental.</p>
+      </article>
+      <article class="card reveal reveal-delay-2">
+        <h3>Produtos de negócio</h3>
+        <p>Experiência em fluxos de ERP (financeiro, compras, vendas, fiscal, RH e logística) com regras operacionais reais.</p>
+      </article>
+      <article class="card reveal reveal-delay-3">
+        <h3>Pagamentos e assinatura</h3>
+        <p>Implementação de APIs com fallback de gateway, processamento transacional e billing recorrente com Stripe.</p>
+      </article>
+      <article class="card reveal reveal-delay-4">
+        <h3>Segurança e governança</h3>
+        <p>RBAC, auditoria, autenticação por token/sessão, isolamento por tenant e trilhas de mudança para rastreabilidade.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="stack">
+    <h2>Stack consolidada</h2>
+    <div class="stack-list" aria-label="Tecnologias">
+      <span class="badge">PHP 8.2+</span>
+      <span class="badge">Laravel 12+</span>
+      <span class="badge">Livewire 3+</span>
+      <span class="badge">Filament 3+</span>
+      <span class="badge">Laravel Sanctum</span>
+      <span class="badge">Laravel Cashier</span>
+      <span class="badge">Stripe</span>
+      <span class="badge">MySQL</span>
+      <span class="badge">Docker</span>
+      <span class="badge">Tailwind CSS</span>
+      <span class="badge">Pest / PHPUnit</span>
+      <span class="badge">REST APIs</span>
+    </div>
+  </section>
+
+  <section class="section" id="metodo">
+    <h2>Como eu trabalho</h2>
+    <div class="list-grid">
+      <article class="list-box">
+        <h3>1. Entendimento de domínio</h3>
+        <p>Traduzo regra de negócio em entidades, fluxos e estados para evitar retrabalho técnico.</p>
+      </article>
+      <article class="list-box">
+        <h3>2. Estrutura de arquitetura</h3>
+        <p>Defino responsabilidades por camada (controller, service, model, componente) e padronizo contratos.</p>
+      </article>
+      <article class="list-box">
+        <h3>3. Implementação incremental</h3>
+        <p>Entrego módulo por módulo com validações, logs e observabilidade de fluxo.</p>
+      </article>
+      <article class="list-box">
+        <h3>4. Refino para escala</h3>
+        <p>Reviso performance, segurança, cobertura de testes e manutenção para crescimento sustentável.</p>
+      </article>
+    </div>
+  </section>
 </main>
 
-<section class="contact">
-    <div class="container">
-        <h2>Vamos conversar?</h2>
-        <p>Estou aberto a oportunidades como Desenvolvedor Back-end Jr, especialmente em projetos envolvendo sistemas web, ERPs, APIs e integração de serviços.</p>
-        <div class="btns" style="justify-content:center;">
-        <a class="cta primary" href="mailto:diegoaugusto.garciaa@gmail.com">Entrar em contato</a>
-        <a class="cta secondary" href="https://wa.me/5532984502345" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        </div>
+<section class="contact" id="contato">
+  <div class="container">
+    <h2>Vamos construir algo sólido?</h2>
+    <p>
+      Aberto a oportunidades como Desenvolvedor Backend Jr para atuar em sistemas web,
+      ERPs, APIs de pagamento e produtos SaaS.
+    </p>
+    <div class="btns" style="justify-content: center;">
+      <a class="cta primary" href="mailto:diegoaugusto.garciaa@gmail.com">Entrar em contato</a>
+      <a class="cta secondary" href="https://wa.me/5532984502345" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </div>
+  </div>
 </section>
 
 <footer>
-    <p>© 2026 Diego Garcia</p>
+  <p>© 2026 Diego Garcia &nbsp;·&nbsp; <a href="mailto:diegoaugusto.garciaa@gmail.com" style="color:#9ec8f7;text-decoration:none;">diegoaugusto.garciaa@gmail.com</a></p>
 </footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
